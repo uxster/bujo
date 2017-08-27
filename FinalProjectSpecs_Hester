@@ -1,0 +1,79 @@
+Final project specification
+
+//Purpose
+To organize your life using the Bullet Journal method.
+
+----------------------Project Specs-------------------------
+//Problem
+A to do-list works as a great organizational tool for most people. Some people on the other
+hand have the feeling that simple to do-lists just don’t give them enough options (ahem, me.).
+That’s where the Bullet Journal comes in place. By using different icons for different types of
+to-do’s and also linking them to the days of the week, you’ll have more and better options to
+organize your life. Another problem: the Bullet Journal method is pretty much meant for actually
+writing with pens on paper. But who drags around a journal nowadays? Let’s make it digital!
+
+//Target audience
+The “some people” I mentioned before. People who love making lists. People who feel the need to
+write down stuff because there’s chaos inside their heads. People who feel calm again after
+organizing something. People who feel like simple to do-lists just aren’t satisfying anymore.
+
+//Goals
+- To learn React in preparation of my traineeship at Fleks
+- To make a start on a project which I can keep on building after the course
+- To make something that I'm personally proud of so I can show it on my portfolio
+
+----------------------Business Specs------------------------
+//Business model
+Users can sign up for free and maybe use the basic functionality for free, but would have to pay
+a monthly subscription fee to be able to use additional modules and to be able to personalize
+their interface.
+
+//Costs
+Website hosting, domain name, database storage, maintenance, marketing.
+
+//Competition
+The original creators of the Bullet Journal method have an app which will help you with creating
+your paper journal. Next to that, there are many simple to-do (web)apps already, like Asana,
+Any.do, Wunderlist.
+
+//USP’s
+The main unique selling point is the usage of the Bullet Journal method. This simple and
+easy-to-adept method will boost your to-do list to a whole different level.
+
+//Supply/demand
+Like I've stated before, there's a lot of simple to-do (web)apps already, but there's not one
+I could find yet that is using the Bullet Journal method.
+
+---------------------Technical specs----------------------
+
+//Database
+The database will have 2 tables with a one-to-many relationship:
+- Table 1: Users (id, firstname, lastname, username, email, password)
+This table will store information about registered users.
+- Table 2: Todos (id, body, type, userId)
+This table will store all the todos that users will create.
+
+//Views
+Home
+Login/Register
+List
+Profile
+
+//Data flow
+The most complex logic in the MVP will probably be rendering the different types of to-do's.
+Beyond the MVP, assigning to-do's to the days of the week and rendering the current day when
+a users logs in, will be the most complex.
+
+-----------------------Timeline-----------------------
+Week 1:
+- Do the React for Beginners course by Wes Bos (3-4 days)
+- Decide whether or not I'm able to use React already for this assignment
+- Create some designs and maybe even a small prototype (1 day)
+
+Week 2:
+- Create MVP functionality (3 days)
+- Spend time on slick front-end (2 days)
+
+If there's time left:
+- Expand on MVP: Assigning to-do's to days of the week
+- Expand on MVP: Assigning different colors for different agenda's
