@@ -77,3 +77,14 @@ Week 2:
 If there's time left:
 - Expand on MVP: Assigning to-do's to days of the week
 - Expand on MVP: Assigning different colors for different agenda's
+
+-------MVP--------
+Functionality:
+- Register
+- Login
+- Add to-do's
+- Delete to-do's
+- Cross off to-do's without deleting them?
+- Edit to-do's
+- Display different icons for different type of to-do's
+

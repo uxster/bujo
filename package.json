@@ -1,0 +1,25 @@
+{
+  "name": "BujoApp",
+  "version": "1.0.0",
+  "description": "Application for managing your life with the Bullet Journal method",
+  "main": "app.js",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-session": "^1.15.5",
+    "pug": "^2.0.0-rc.3",
+    "sequelize": "^4.7.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uxster/bujo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uxster/bujo/issues"
+  },
+  "homepage": "https://github.com/uxster/bujo#readme"
+}
