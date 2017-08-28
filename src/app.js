@@ -84,6 +84,14 @@ app.get('/', function(req, res) {
 	res.render('index');
 });
 
+app.get('/profile', function(req, res) {
+	res.render('profile');
+});
+
+app.get('/bujo', function(req, res) {
+	res.render('bujo');
+});
+
 // Start listening
 var server = app.listen(9000, () => {
 	console.log(`Bujo App listening on port: ${server.address().port}`);
