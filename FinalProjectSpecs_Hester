@@ -88,3 +88,6 @@ Functionality:
 - Edit to-do's
 - Display different icons for different type of to-do's
 
+Requirements:
+- Datavalidation
+- Responsive

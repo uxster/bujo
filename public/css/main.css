@@ -1,0 +1,20 @@
+body {
+	background-image: url(/images/paper.png);
+	font-family: 'Indie Flower', cursive;
+}
+
+/*font-family: 'Walter Turncoat', cursive;
+font-family: 'Patrick Hand SC', cursive;
+font-family: 'Caveat', cursive;
+font-family: 'Cedarville Cursive', cursive;
+font-family: 'Indie Flower', cursive;*/
+
+/*header, main, footer {
+	padding-left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+	header, main, footer {
+		padding-left: 0;
+	}
+}*/
