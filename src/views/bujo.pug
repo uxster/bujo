@@ -1,0 +1,66 @@
+doctype html
+html
+	head 
+		link(rel='stylesheet', href='/css/main.css', type='text/css')
+		link(href="https://fonts.googleapis.com/css?family=Caveat|Cedarville+Cursive|Indie+Flower|Patrick+Hand+SC|Walter+Turncoat" rel="stylesheet")
+		link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+		link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+	body.grey.darken-2
+		header
+			nav
+				.nav-wrapper.red.darken-4
+					a.brand-logo.center(href="/bujo") BuJo
+					a.button-collapse(href="#" data-activates="mobile")
+						i.material-icons menu
+					ul.right.hide-on-med-and-down
+						li
+							a(href="/bujo")
+								i.material-icons list
+						li
+							a(href="/profile")
+								i.material-icons settings
+						li
+							a(href="/profile") xHesterr
+								i.material-icons.left person
+						
+						
+					ul.side-nav#mobile.white
+						li
+							a(href="/profile") PROFILE
+								i.material-icons person
+		main
+			.row
+				.col.s10.offset-s1
+					.row
+						.col.s12
+							.row
+								//- .col.s10.offset-s1
+								//- 	p#title Bullet Journal
+							.row#paper.z-depth-1
+								.col.s1
+								.col.s11#list 
+									p list with each loop
+									p list
+									p list
+									p list
+									p list
+									p list
+									p list
+									p list
+									p list
+					.row
+						.col.s12.red.darken-4#form
+							form(action='/todo/new', method='POST', autocomplete='off')
+								.row
+									.input-field.col.s8
+										input(type="text" name="todo" required)
+										label.white-text(for="new") what do you need to do today?
+									button#add.btn-flat.col.s2.offset-s1(type="submit")
+										i.material-icons add
+
+
+		script(type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js")
+		script(src='/js/main.js')
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js")

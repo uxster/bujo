@@ -1,20 +1,44 @@
 body {
-	background-image: url(/images/paper.png);
-	font-family: 'Indie Flower', cursive;
+	font-family: 'Patrick Hand SC', cursive;
+	font-size: 25pt;
 }
+
+header > nav > .nav-wrapper > .brand-logo {	
+	-webkit-margin-before: 0px;
+	-webkit-margin-after: 0px;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	font-family: 'Cedarville Cursive', cursive;
+}
+
+#list {
+	overflow: auto;
+	font-size: 0.8em;
+	border-left: 1px solid red;
+	padding-left: 50px;
+	height: 400px;
+}
+
+#paper {
+	background-image: url(/images/paper.png);
+	height: 400px;
+}
+
+#title {
+	font-size: 1em;
+	font-family: 'Cedarville Cursive', cursive;
+}
+
+#form {
+	padding: 5px 15px 5px 15px;
+}
+
+/*#add {
+	margin-top: 50px;
+}*/
 
 /*font-family: 'Walter Turncoat', cursive;
 font-family: 'Patrick Hand SC', cursive;
 font-family: 'Caveat', cursive;
 font-family: 'Cedarville Cursive', cursive;
 font-family: 'Indie Flower', cursive;*/
-
-/*header, main, footer {
-	padding-left: 300px;
-}
-
-@media only screen and (max-width : 992px) {
-	header, main, footer {
-		padding-left: 0;
-	}
-}*/
