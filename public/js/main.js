@@ -1,4 +1,4 @@
 $(document).ready(() => {
-	$('#login').modal();
+	$('#popup').modal();
 	$(".button-collapse").sideNav();
 })

@@ -16,15 +16,14 @@ html
 						i.material-icons menu
 					ul.right.hide-on-med-and-down
 						li
-							a(href="/bujo")
+							a(href="/bujo/:username")
 								i.material-icons list
 						li
-							a(href="/profile")
+							a(href="#")
 								i.material-icons settings
 						li
-							a(href="/profile") xHesterr
+							a(href="/profile/:username") #{user.username}
 								i.material-icons.left person
-						
 						
 					ul.side-nav#mobile.white
 						li

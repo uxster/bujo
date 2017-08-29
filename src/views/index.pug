@@ -7,27 +7,40 @@ html
 		link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css")
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
 	body
+		body.grey.darken-2
 		header
-			.navbar-fixed.transparant
-				nav
-					.nav-wrapper
-						a.brand-logo.center(href="/") Bujo
-		.container
-			.row
-				h4 Log in
-				form(action='/login', method='POST', autocomplete='off')
-					.row
-						.input-field
-							i.material-icons.prefix mail_outline
-							input#icon_prefix(type="email" name="email" required)
-							label(for="icon_prefix") Email
-					br
-					.row
-						.input-field
-							i.material-icons.prefix lock_outline
-							input#icon_prefix(type="password" name="password" required)
-							label(for="icon_prefix") Password
-					button.modal-action.btn(type="submit" name="submit") LOGIN
+			nav
+				.nav-wrapper.red.darken-4
+					a.brand-logo.center(href="/bujo") BuJo
+					a.button-collapse(href="#" data-activates="mobile")
+						i.material-icons menu
+					ul.right.hide-on-med-and-down
+						li
+							a.btn-flat(href="/register") register
+						li
+							button.btn-flat.modal-trigger(href="#popup" data-target="#popup") login
+			#popup.modal
+				.modal-content
+					h4.center-align login
+					form(action="/login" method="POST" autocomplete="off")
+						.row
+							.input-field
+								input(type="text" name="username" required)
+								label(for="username") username
+						.row
+							.input-field
+								input(type="password" name="password" required)
+								label(for="password") password
+						button.btn-flat.modal-action(type="submit" name="login")
+					p.center-align Don't have an account yet?
+					a.center.btn-flat(href="/register") register
+						
+					ul.side-nav#mobile.white
+						li
+							a.btn-flat(href="/login") LOGIN
+							a.btn-flat(href="/register") REGISTER
+
+		main(style="height: 700px")
 		//- ul#slide-out.side-nav.fixed
 		//- 	li
 		//- 		a(href="#!") First Sidebar Link

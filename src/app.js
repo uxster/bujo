@@ -69,17 +69,89 @@ Todos.belongsTo(Users);
 
 // GET
 
-app.get('/', function(req, res) {
-	res.render('index');
+app.get('/', (req, res) => {
+	res.render('index', {
+		errormessage: req.query.message
+	});
 });
 
-app.get('/profile', function(req, res) {
-	res.render('profile');
+app.get('/register', (req, res) => {
+	res.render('register');
 });
 
-app.get('/bujo', function(req, res) {
-	res.render('bujo');
+app.get('/profile/:username', (req, res) => {
+	res.render('profile', {
+		user: req.session.user
+	});
 });
+
+app.get('/bujo/:username', (req, res) => {
+	res.render('bujo', {
+		user: req.session.user
+	});
+});
+
+//POST
+app.post('/register', (req, res) => {
+
+	let pw = req.body.password;
+
+    bcrypt.hash(pw, 10)
+    .then((hash) => {
+      Users.create({
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        username: req.body.username,
+        email: req.body.email,
+        password: hash
+      })
+      .then((user) => {
+        req.session.user = user;
+        res.redirect('/bujo/' + user.username)
+      })
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
+});
+
+app.post('/login', (req, res) => {
+  let pw = req.body.password;
+  let username = req.body.username;
+
+  Users.findOne({
+    where: {
+      username: username
+    }
+  })
+  .then(function(user){
+    hash = user.password;
+
+    bcrypt.compare(pw, hash).then((result) => {
+      if(result === true) {
+        req.session.user = user;
+        res.redirect('/bujo/' + user.username)
+      } else {
+        res.redirect('/?message=' + encodeURIComponent('Invalid username or password!'))
+      }
+    })
+  })
+  .catch((error) => {
+    console.error(error);
+    res.redirect('/?message=' + encodeURIComponent('Invalid username or password!'));
+  });
+})
+
+app.get('/logout', (req, res) => {
+    req.session.destroy((error) => {
+      if(error) {
+        throw error;
+      }
+    });
+
+    res.redirect('/');
+})
 
 // Start listening
 var server = app.listen(9000, () => {
