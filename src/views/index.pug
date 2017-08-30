@@ -2,7 +2,7 @@ doctype html
 html
 	head 
 		link(rel='stylesheet', href='/css/main.css', type='text/css')
-		link(href="https://fonts.googleapis.com/css?family=Caveat|Cedarville+Cursive|Indie+Flower|Patrick+Hand+SC|Walter+Turncoat" rel="stylesheet")
+		link(href="https://fonts.googleapis.com/css?family=Caveat|Cedarville+Cursive|Indie+Flower|Patrick+Hand+SC|Walter+Turncoat|Montserrat" rel="stylesheet")
 		link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
 		link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css")
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
@@ -12,44 +12,59 @@ html
 			nav
 				.nav-wrapper.red.darken-4
 					a.brand-logo.center(href="/bujo") BuJo
-					a.button-collapse(href="#" data-activates="mobile")
-						i.material-icons menu
-					ul.right.hide-on-med-and-down
-						li
-							a.btn-flat(href="/register") register
-						li
-							button.btn-flat.modal-trigger(href="#popup" data-target="#popup") login
-			#popup.modal
-				.modal-content
-					h4.center-align login
-					form(action="/login" method="POST" autocomplete="off")
+					if user === undefined
+						ul.right
+							li
+								button.btn-flat.modal-trigger.white(href="#popup" data-target="#popup") login
+				#popup.modal.black-text
+					.modal-content
 						.row
-							.input-field
-								input(type="text" name="username" required)
-								label(for="username") username
+							h4.center-align Login
 						.row
-							.input-field
-								input(type="password" name="password" required)
-								label(for="password") password
-						button.btn-flat.modal-action(type="submit" name="login")
-					p.center-align Don't have an account yet?
-					a.center.btn-flat(href="/register") register
-						
-					ul.side-nav#mobile.white
-						li
-							a.btn-flat(href="/login") LOGIN
-							a.btn-flat(href="/register") REGISTER
+							form(action="/login" method="POST" autocomplete="off")
+								.row
+									.input-field.col.s10.l8.offset-s1.offset-l2
+										input(type="text" name="username" required)
+										label(for="username") username
+								.row
+									.input-field.col.s10.l8.offset-s1.offset-l2
+										input(type="password" name="password" required)
+										label(for="password") password
+								.row.center
+									button.btn-flat.modal-action.red.darken-4.white-text(type="submit" name="login") LOGIN
+						.row.center
+							p.center-align Don't have an account yet?
+							a.btn-flat.red.darken-4.white-text(href="/register") REGISTER
 
 		main(style="height: 700px")
+
+			//- .slider
+			//- 	ul.slides
+			//- 		li
+			//- 			img(src='https://lorempixel.com/580/250/nature/1')
+			//- 			.caption.center-align
+			//- 				h3 This is our big Tagline!
+			//- 				h5.light.grey-text.text-lighten-3 Here's our small slogan.
+			//- 		li
+			//- 			img(src='https://lorempixel.com/580/250/nature/2')
+			//- 			.caption.left-align
+			//- 			  h3 Left Aligned Caption
+			//- 			  h5.light.grey-text.text-lighten-3 Here's our small slogan.
+			//- 		 li
+			//- 			img(src='https://lorempixel.com/580/250/nature/3')
+			//- 			// random image
+			//- 			.caption.right-align
+			//- 			  h3 Right Aligned Caption
+			//- 			  h5.light.grey-text.text-lighten-3 Here's our small slogan.
+			//- 		 li
+			//- 			img(src='https://lorempixel.com/580/250/nature/4')
+			//- 			// random image
+			//- 			.caption.center-align
+			//- 			  h3 This is our big Tagline!
+			//- 			  h5.light.grey-text.text-lighten-3 Here's our small slogan.
+
 			p=errormessage
-		//- ul#slide-out.side-nav.fixed
-		//- 	li
-		//- 		a(href="#!") First Sidebar Link
-		//- 	li
-		//- 		a(href="#!") Second Sidebar Link  
-		//- a.button-collapse(href="#" data-activates="slide-out")
-		//- 	i.material-icons menu
-		//- .container
+
 		footer.page-footer
 			.footer-copyright.teal.darken-3
 				.container

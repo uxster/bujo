@@ -3,8 +3,9 @@ html {
 }
 
 body {
-	font-family: 'Patrick Hand SC', cursive;
-	font-size: 25pt;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16pt;
+	font-weight: 300;
 	background-image: url(/images/paper.png);
 }
 
@@ -19,8 +20,8 @@ header > nav > .nav-wrapper > .brand-logo {
 #list {
 	overflow: auto;
 	font-size: 0.8em;
-	border-left: 1px solid red;
 	padding-left: 50px;
+	font-family: 'Patrick Hand SC', cursive;
 }
 
 .title {

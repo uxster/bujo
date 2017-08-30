@@ -11,16 +11,48 @@ html
 		header
 			nav
 				.nav-wrapper.red.darken-4
-					a.brand-logo.center(href="/bujo") BuJo
+					a.brand-logo.center(href="/bujo/" + user.username) BuJo
 					a.button-collapse(href="#" data-activates="mobile")
-						i.material-icons menu
+						i.material-icons bookmark
 					ul.right.hide-on-med-and-down
-						
-						
-					ul.side-nav#mobile.white
 						li
-							a(href="/profile") PROFILE
-								i.material-icons person
+							a.tooltipped(href="/bujo/" + user.username, data-position="bottom" data-delay="50" data-tooltip="BUJO")
+								i.material-icons book
+						li
+							a.tooltipped(href="#" data-position="bottom" data-delay="50" data-tooltip="HELP")
+								i.material-icons help
+						li
+							a.tooltipped(href="#" data-position="bottom" data-delay="50" data-tooltip="SETTINGS")
+								i.material-icons settings
+						li
+							a.tooltipped(href="/profile/" + user.username, data-position="bottom" data-delay="50" data-tooltip="PROFILE") #{user.username}
+								i.material-icons.left person
+						
+					ul.side-nav#mobile.grey.darken-2
+						.user-view
+							.background.red.darken-4
+							a(href="/profile/" + user.username)
+								img(src="../images/profsile.jpg")
+							a(href="/profile/" + user.username)
+								span.white-text.name #{user.username}
+							a(href="/profile/" + user.username)
+								span.white-text.email #{user.firstname} #{user.lastname}
+						li
+							a.white-text(href="/profile/" + user.username) PROFILE
+								i.material-icons.white-text person
+						li
+							a.white-text(href="/bujo/" + user.username) BUJO
+								i.material-icons.white-text book
+						li
+							a.white-text(href="#") SETTINGS
+								i.material-icons.white-text settings
+						li
+							a.white-text(href="#") HELP
+								i.material-icons.white-text help
+						li.divider
+						li
+							a.white-text(href="/logout") LOG OUT
+								i.material-icons.white-text exit_to_app
 		main
 			.container
 				h4.title Add Event

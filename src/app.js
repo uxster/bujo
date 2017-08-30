@@ -65,9 +65,14 @@ Todos.belongsTo(Users);
 // GET
 
 app.get('/', (req, res) => {
-	res.render('index', {
-		errormessage: req.query.message
-	});
+	if(user === undefined) {
+		res.render('index', {
+			errormessage: req.query.message
+		});
+	} else {
+		var user = req.session.user;
+		res.redirect('/bujo/' + user.username)
+	}
 });
 
 app.get('/register', (req, res) => {
@@ -107,19 +112,55 @@ app.get('/bujo/:username', (req, res) => {
 });
 
 app.get('/bujo/new/task', (req, res) => {
-	res.render('task');
+
+	var user = req.session.user;
+
+	if (user === undefined) {
+		res.redirect('/?message=' + encodeURIComponent("Please log in"));
+  	} else {
+		res.render('task', {
+			user: req.session.user
+		});
+	}
 });
 
 app.get('/bujo/new/appt', (req, res) => {
-	res.render('appt');
+
+	var user = req.session.user;
+
+	if (user === undefined) {
+		res.redirect('/?message=' + encodeURIComponent("Please log in"));
+  	} else {
+  		res.render('appt', {
+			user: req.session.user
+		});
+  	}
 });
 
 app.get('/bujo/new/event', (req, res) => {
-	res.render('event');
+
+	var user = req.session.user;
+
+	if (user === undefined) {
+		res.redirect('/?message=' + encodeURIComponent("Please log in"));
+  	} else {
+  		res.render('event', {
+			user: req.session.user
+		});
+  	}
 });
 
 app.get('/bujo/new/note', (req, res) => {
-	res.render('note');
+
+	var user = req.session.user;
+
+	if (user === undefined) {
+		res.redirect('/?message=' + encodeURIComponent("Please log in"));
+  	} else {
+  		res.render('note', {
+			user: req.session.user
+		});
+  	}
 });
 
 app.get('/delete/:id', (req, res) => {

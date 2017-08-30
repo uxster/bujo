@@ -1,4 +1,6 @@
 $(document).ready(() => {
 	$('#popup').modal();
-	$(".button-collapse").sideNav();
+	$(".button-collapse").sideNav({
+		menuWidth: 200
+	});
 })
