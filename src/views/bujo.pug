@@ -7,7 +7,8 @@ html
 		link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css")
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
 
-	body.grey.darken-2
+	body
+		
 		header
 			nav
 				.nav-wrapper.red.darken-4
@@ -29,36 +30,38 @@ html
 						li
 							a(href="/profile") PROFILE
 								i.material-icons person
+
 		main
 			.row
 				.col.s10.offset-s1
 					.row
-						.col.s12
-							.row
-								//- .col.s10.offset-s1
-								//- 	p#title Bullet Journal
-							.row#paper.z-depth-1
-								.col.s1
-								.col.s11#list 
-									p list with each loop
-									p list
-									p list
-									p list
-									p list
-									p list
-									p list
-									p list
-									p list
+						.col.s12#list 
+							p list with each loop
+							p list
+							p list
+							p list
+							p list
+							p list
+							p list
+							p list
+							p list
 					.row
-						.col.s12.red.darken-4#form
-							form(action='/todo/new', method='POST', autocomplete='off')
-								.row
-									.input-field.col.s8
-										input(type="text" name="todo" required)
-										label.white-text(for="new") what do you need to do today?
-									button#add.btn-flat.col.s2.offset-s1(type="submit")
-										i.material-icons add
-
+						.fixed-action-btn.toolbar
+							a.btn-floating.btn-large.red.darken-4
+								i.large.material-icons mode_edit
+							ul
+								li
+									a(href="/bujo/new/task")
+										i.material-icons check_box_outline_blank
+								li
+									a(href="/bujo/new/appt")
+										i.material-icons change_history
+								li
+									a(href="/bujo/new/event")
+										i.material-icons radio_button_unchecked
+								li
+									a(href="/bujo/new/note")
+										i.material-icons remove
 
 		script(type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js")
 		script(src='/js/main.js')

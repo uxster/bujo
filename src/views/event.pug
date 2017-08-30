@@ -7,7 +7,7 @@ html
 		link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css")
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
 
-	body.grey.darken-2
+	body
 		header
 			nav
 				.nav-wrapper.red.darken-4
@@ -23,7 +23,7 @@ html
 								i.material-icons person
 		main
 			.container
-				h4 Register
+				h4 Add event
 				form(action="/register" method="POST" autocomplete="off")
 					.row
 						.input-field
@@ -45,8 +45,4 @@ html
 						.input-field
 							input(type="password" name="password" required)
 							label(for="password") password
-					button.btn-flat(type="submit" name="register") register
-
-		script(type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js")
-		script(src='/js/main.js')
-		script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js")
+					button.btn-flat(type="submit" name="register") add

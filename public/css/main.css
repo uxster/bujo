@@ -1,6 +1,11 @@
+html {
+	height: 100%;
+}
+
 body {
 	font-family: 'Patrick Hand SC', cursive;
 	font-size: 25pt;
+	background-image: url(/images/paper.png);
 }
 
 header > nav > .nav-wrapper > .brand-logo {	
@@ -16,15 +21,10 @@ header > nav > .nav-wrapper > .brand-logo {
 	font-size: 0.8em;
 	border-left: 1px solid red;
 	padding-left: 50px;
-	height: 400px;
+	height: 500px;
 }
 
-#paper {
-	background-image: url(/images/paper.png);
-	height: 400px;
-}
-
-#title {
+.title {
 	font-size: 1em;
 	font-family: 'Cedarville Cursive', cursive;
 }

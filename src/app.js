@@ -7,9 +7,8 @@ const express = require('express'),
 	Sequelize = require('sequelize'),
 	bodyParser = require('body-parser'),
 	session = require('express-session'),
-	SequelizeStore = require('connect-session-sequelize')( session.Store ),
 	bcrypt = require('bcrypt');
-  	var db = new Sequelize( "bujo_app", process.env.POSTGRES_USER, null, {
+	var db = new Sequelize( "bujo_app", process.env.POSTGRES_USER, null, {
 		host: "localhost",
 		dialect: "postgres",
 		define: {
@@ -25,12 +24,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static( __dirname + '/../public'));
 app.use(session( {
 	secret: "suchsafemanywow",
-	store: new SequelizeStore({
-		db: db,
-		checkExpirationInterval: 15 * 60 * 1000,
-		expiration: 24 * 60 * 60 * 1000
-	}),
-	saveUnitialized: true,
+	saveUninitialized: true,
 	resave: true
 }));
 
@@ -50,16 +44,17 @@ var Users = db.define('users', {
 	lastname: Sequelize.STRING,
 	username: Sequelize.STRING,
 	email: {
-   	type: Sequelize.STRING,
-   	unique: true
- 	},
+		type: Sequelize.STRING,
+		unique: true
+	},
 	password: {
-   	type: Sequelize.STRING,
-  	}
+		type: Sequelize.STRING,
+	}
 });
 
 var Todos = db.define('todos', {
-	todo: Sequelize.TEXT
+	body: Sequelize.TEXT,
+	type: Sequelize.TEXT
 });
 
 // Database table associations
@@ -91,28 +86,44 @@ app.get('/bujo/:username', (req, res) => {
 	});
 });
 
+app.get('/bujo/new/task', (req, res) => {
+	res.render('task');
+});
+
+app.get('/bujo/new/appt', (req, res) => {
+	res.render('appt');
+});
+
+app.get('/bujo/new/event', (req, res) => {
+	res.render('event');
+});
+
+app.get('/bujo/new/note', (req, res) => {
+	res.render('note');
+});
+
 //POST
 app.post('/register', (req, res) => {
 
 	let pw = req.body.password;
 
-    bcrypt.hash(pw, 10)
-    .then((hash) => {
-      Users.create({
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        username: req.body.username,
-        email: req.body.email,
-        password: hash
-      })
-      .then((user) => {
-        req.session.user = user;
-        res.redirect('/bujo/' + user.username)
-      })
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+	 bcrypt.hash(pw, 10)
+	 .then((hash) => {
+		Users.create({
+		  firstname: req.body.firstname,
+		  lastname: req.body.lastname,
+		  username: req.body.username,
+		  email: req.body.email,
+		  password: hash
+		})
+		.then((user) => {
+		  req.session.user = user;
+		  res.redirect('/bujo/' + user.username)
+		})
+	 })
+	 .catch((error) => {
+		console.error(error);
+	 });
 
 });
 
@@ -121,36 +132,52 @@ app.post('/login', (req, res) => {
   let username = req.body.username;
 
   Users.findOne({
-    where: {
-      username: username
-    }
+	 where: {
+		username: username
+	 }
   })
   .then(function(user){
-    hash = user.password;
+	 hash = user.password;
 
-    bcrypt.compare(pw, hash).then((result) => {
-      if(result === true) {
-        req.session.user = user;
-        res.redirect('/bujo/' + user.username)
-      } else {
-        res.redirect('/?message=' + encodeURIComponent('Invalid username or password!'))
-      }
-    })
+	 bcrypt.compare(pw, hash).then((result) => {
+		if(result === true) {
+		  req.session.user = user;
+		  res.redirect('/bujo/' + user.username)
+		} else {
+		  res.redirect('/?message=' + encodeURIComponent('Invalid username or password!'))
+		}
+	 })
   })
   .catch((error) => {
-    console.error(error);
-    res.redirect('/?message=' + encodeURIComponent('Invalid username or password!'));
+	 console.error(error);
+	 res.redirect('/?message=' + encodeURIComponent('Invalid username or password!'));
   });
 })
 
-app.get('/logout', (req, res) => {
-    req.session.destroy((error) => {
-      if(error) {
-        throw error;
-      }
-    });
+app.post('/new/task', (req, res) => {
+	Todos.create({
+		body: req.body.body,
+		type: 'task',
+		userId: req.session.user.id
+	})
+	.then(function(user){
+		console.log("task posted");
+		var user = req.session.user;
+		res.redirect('/bujo/' + user.username);
+	})
+	.catch((error) => {
+		console.error(error);
+	});
+})
 
-    res.redirect('/');
+app.get('/logout', (req, res) => {
+	 req.session.destroy((error) => {
+		if(error) {
+		  throw error;
+		}
+	 });
+
+	 res.redirect('/');
 })
 
 // Start listening
