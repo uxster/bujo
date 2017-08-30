@@ -7,7 +7,7 @@ html
 		link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css")
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
 	body
-		body.grey.darken-2
+		body
 		header
 			nav
 				.nav-wrapper.red.darken-4
@@ -41,6 +41,7 @@ html
 							a.btn-flat(href="/register") REGISTER
 
 		main(style="height: 700px")
+			p=errormessage
 		//- ul#slide-out.side-nav.fixed
 		//- 	li
 		//- 		a(href="#!") First Sidebar Link

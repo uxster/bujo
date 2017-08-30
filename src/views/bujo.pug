@@ -32,19 +32,46 @@ html
 								i.material-icons person
 
 		main
-			.row
-				.col.s10.offset-s1
 					.row
 						.col.s12#list 
-							p list with each loop
-							p list
-							p list
-							p list
-							p list
-							p list
-							p list
-							p list
-							p list
+							each bujo in Bujos
+								if bujo.type === 'task'
+									.row
+										.col.s2
+											i.material-icons check_box_outline_blank
+										.col.s6
+											p #{bujo.body}
+										.col.s4
+											a(href="/delete/" + bujo.id)
+												i.material-icons.right delete
+								else if bujo.type === 'appt'
+									.row
+										.col.s2
+											i.material-icons change_history
+										.col.s6
+											p #{bujo.body}
+										.col.s4
+											a(href="/delete/" + bujo.id)
+												i.material-icons.right delete
+								else if bujo.type === 'event'
+									.row
+										.col.s2
+											i.material-icons radio_button_unchecked
+										.col.s6
+											p #{bujo.body}
+										.col.s4
+											a(href="/delete/" + bujo.id)
+												i.material-icons.right delete
+								else
+									.row
+										.col.s2
+											i.material-icons remove
+										.col.s6
+											p #{bujo.body}
+										.col.s4
+											a(href="/delete/" + bujo.id)
+												i.material-icons.right delete
+
 					.row
 						.fixed-action-btn.toolbar
 							a.btn-floating.btn-large.red.darken-4

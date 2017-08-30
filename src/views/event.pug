@@ -23,26 +23,15 @@ html
 								i.material-icons person
 		main
 			.container
-				h4 Add event
-				form(action="/register" method="POST" autocomplete="off")
+				h4.title Add Event
+				form(action="/add/event" method="POST" autocomplete="off")
 					.row
 						.input-field
-							input(type="text" name="firstname" required)
-							label(for="firstname") firstname
+							input(type="text" name="body" required)
+							label(for="body") what event are you attending?
 					.row
-						.input-field
-							input(type="text" name="lastname" required)
-							label(for="lastname") lastname
-					.row
-						.input-field
-							input(type="email" name="email" required)
-							label(for="email") email
-					.row
-						.input-field
-							input(type="text" name="username" required)
-							label(for="username") username
-					.row
-						.input-field
-							input(type="password" name="password" required)
-							label(for="password") password
-					button.btn-flat(type="submit" name="register") add
+						button.btn-flat.red.darken-4.white-text(type="submit" name="addevent") add
+
+		script(type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js")
+		script(src='/js/main.js')
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js")

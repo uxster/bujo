@@ -81,9 +81,29 @@ app.get('/profile/:username', (req, res) => {
 });
 
 app.get('/bujo/:username', (req, res) => {
-	res.render('bujo', {
-		user: req.session.user
-	});
+
+	var user = req.session.user;
+
+	if (user === undefined) {
+		res.redirect('/?message=' + encodeURIComponent("Please log in to view your profile"));
+  	} else {
+   	Todos.findAll({
+         where: {
+         	userId: req.session.user.id
+         }
+     	})
+    	.then((bujos) => {
+    		res.render('bujo', {
+    			Bujos: bujos,
+          	user: user,
+          	errormessage: req.query.message
+    		})
+    	})
+    	.catch((error) => {
+    		console.error(error);
+    	});
+    }
+
 });
 
 app.get('/bujo/new/task', (req, res) => {
@@ -101,6 +121,24 @@ app.get('/bujo/new/event', (req, res) => {
 app.get('/bujo/new/note', (req, res) => {
 	res.render('note');
 });
+
+app.get('/delete/:id', (req, res) => {
+	var iedee = req.params.id;
+
+	Todos.destroy({
+		where: {
+			id: iedee
+		}
+	})
+	.then(() => {
+		var user = req.session.user
+		res.redirect('/bujo/' + user.username)
+	})
+	.catch((error) => {
+		console.error(error);
+	});
+
+})
 
 //POST
 app.post('/register', (req, res) => {
@@ -154,7 +192,7 @@ app.post('/login', (req, res) => {
   });
 })
 
-app.post('/new/task', (req, res) => {
+app.post('/add/task', (req, res) => {
 	Todos.create({
 		body: req.body.body,
 		type: 'task',
@@ -162,6 +200,54 @@ app.post('/new/task', (req, res) => {
 	})
 	.then(function(user){
 		console.log("task posted");
+		var user = req.session.user;
+		res.redirect('/bujo/' + user.username);
+	})
+	.catch((error) => {
+		console.error(error);
+	});
+})
+
+app.post('/add/appt', (req, res) => {
+	Todos.create({
+		body: req.body.body,
+		type: 'appt',
+		userId: req.session.user.id
+	})
+	.then(function(user){
+		console.log("appt posted");
+		var user = req.session.user;
+		res.redirect('/bujo/' + user.username);
+	})
+	.catch((error) => {
+		console.error(error);
+	});
+})
+
+app.post('/add/event', (req, res) => {
+	Todos.create({
+		body: req.body.body,
+		type: 'event',
+		userId: req.session.user.id
+	})
+	.then(function(user){
+		console.log("event posted");
+		var user = req.session.user;
+		res.redirect('/bujo/' + user.username);
+	})
+	.catch((error) => {
+		console.error(error);
+	});
+})
+
+app.post('/add/note', (req, res) => {
+	Todos.create({
+		body: req.body.body,
+		type: 'note',
+		userId: req.session.user.id
+	})
+	.then(function(user){
+		console.log("note posted");
 		var user = req.session.user;
 		res.redirect('/bujo/' + user.username);
 	})
