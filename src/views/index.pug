@@ -12,58 +12,70 @@ html
 			nav
 				.nav-wrapper.red.darken-4
 					a.brand-logo.center(href="/bujo") BuJo
-					if user === undefined
-						ul.right
-							li
-								button.btn-flat.modal-trigger.white(href="#popup" data-target="#popup") login
-				#popup.modal.black-text
-					.modal-content
-						.row
-							h4.center-align Login
-						.row
-							form(action="/login" method="POST" autocomplete="off")
-								.row
-									.input-field.col.s10.l8.offset-s1.offset-l2
-										input(type="text" name="username" required)
-										label(for="username") username
-								.row
-									.input-field.col.s10.l8.offset-s1.offset-l2
-										input(type="password" name="password" required)
-										label(for="password") password
-								.row.center
-									button.btn-flat.modal-action.red.darken-4.white-text(type="submit" name="login") LOGIN
-						.row.center
-							p.center-align Don't have an account yet?
-							a.btn-flat.red.darken-4.white-text(href="/register") REGISTER
+					ul.right
+						li
+							button.btn-flat.modal-trigger.white(href="#popup" data-target="#popup") login
+			#popup.modal.black-text
+				.modal-content
+					.row
+						h4.center-align Login
+					.row
+						form(action="/login" method="POST" autocomplete="off")
+							.row
+								.input-field.col.s10.l8.offset-s1.offset-l2
+									input(type="text" name="username" required)
+									label(for="username") username
+							.row
+								.input-field.col.s10.l8.offset-s1.offset-l2
+									input(type="password" name="password" required)
+									label(for="password") password
+							.row.center
+								button.btn-flat.modal-action.red.darken-4.white-text(type="submit" name="login") LOGIN
+					.row.center
+						p.center-align Don't have an account yet?
+						a.btn-flat.red.darken-4.white-text(href="/register") REGISTER
 
-		main(style="height: 700px")
-
-			//- .slider
-			//- 	ul.slides
-			//- 		li
-			//- 			img(src='https://lorempixel.com/580/250/nature/1')
-			//- 			.caption.center-align
-			//- 				h3 This is our big Tagline!
-			//- 				h5.light.grey-text.text-lighten-3 Here's our small slogan.
-			//- 		li
-			//- 			img(src='https://lorempixel.com/580/250/nature/2')
-			//- 			.caption.left-align
-			//- 			  h3 Left Aligned Caption
-			//- 			  h5.light.grey-text.text-lighten-3 Here's our small slogan.
-			//- 		 li
-			//- 			img(src='https://lorempixel.com/580/250/nature/3')
-			//- 			// random image
-			//- 			.caption.right-align
-			//- 			  h3 Right Aligned Caption
-			//- 			  h5.light.grey-text.text-lighten-3 Here's our small slogan.
-			//- 		 li
-			//- 			img(src='https://lorempixel.com/580/250/nature/4')
-			//- 			// random image
-			//- 			.caption.center-align
-			//- 			  h3 This is our big Tagline!
-			//- 			  h5.light.grey-text.text-lighten-3 Here's our small slogan.
-
-			p=errormessage
+		main
+			if errormessage
+				#error
+					p.center-align.red-text #{errormessage}
+			.row
+				.slider
+					ul.slides
+						li
+							img(src='images/bujo1.jpg')
+							.caption.center-align
+								h3 This is our big Tagline!
+								h5.light.red-text.text-darken-2 Here's our small slogan.
+						li
+							img(src='images/bujo2.jpg')
+							.caption.left-align
+								h3 Left Aligned Caption
+								h5.light.red-text.text-darken-2 Here's our small slogan.
+						li
+							img(src='images/bujo3.jpg')
+							.caption.right-align
+								h3 Right Aligned Caption
+								h5.light.red-text.text-darken-2 Here's our small slogan.
+						li
+							img(src='images/bujo4.jpg')
+							.caption.center-align
+								h3 This is our big Tagline!
+								h5.light.red-text.text-darken-2 Here's our small slogan.
+			.row
+				.container
+					.col.s4.center
+						i.material-icons.large book
+						h5 BOOK
+						p book
+					.col.s4.center
+						i.material-icons.large book
+						h5 BOOK
+						p book
+					.col.s4.center
+						i.material-icons.large book
+						h5 BOOK
+						p book
 
 		footer.page-footer
 			.footer-copyright.teal.darken-3

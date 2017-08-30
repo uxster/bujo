@@ -3,4 +3,7 @@ $(document).ready(() => {
 	$(".button-collapse").sideNav({
 		menuWidth: 200
 	});
+	$('.slider').slider({
+		indicators: false
+	});	
 })

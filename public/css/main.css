@@ -17,6 +17,10 @@ header > nav > .nav-wrapper > .brand-logo {
 	font-family: 'Cedarville Cursive', cursive;
 }
 
+#error {
+	height: 25px;
+}
+
 #list {
 	overflow: auto;
 	font-size: 0.8em;
