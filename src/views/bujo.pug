@@ -33,8 +33,6 @@ html
 						.user-view
 							.background.red.darken-4
 							a(href="/profile/" + user.username)
-								img(src="../images/profsile.jpg")
-							a(href="/profile/" + user.username)
 								span.white-text.name #{user.username}
 							a(href="/profile/" + user.username)
 								span.white-text.email #{user.firstname} #{user.lastname}
@@ -56,45 +54,44 @@ html
 								i.material-icons.white-text exit_to_app
 
 		main
-			.row
-				.col.s12#list 
-					each bujo in Bujos
-						if bujo.type === 'task'
-							.row
-								.col.s2
-									i.material-icons check_box_outline_blank
-								.col.s6
-									p #{bujo.body}
-								.col.s4
-									a(href="/delete/" + bujo.id)
-										i.material-icons.right delete
-						else if bujo.type === 'appt'
-							.row
-								.col.s2
-									i.material-icons change_history
-								.col.s6
-									p #{bujo.body}
-								.col.s4
-									a(href="/delete/" + bujo.id)
-										i.material-icons.right delete
-						else if bujo.type === 'event'
-							.row
-								.col.s2
-									i.material-icons radio_button_unchecked
-								.col.s6
-									p #{bujo.body}
-								.col.s4
-									a(href="/delete/" + bujo.id)
-										i.material-icons.right delete
-						else
-							.row
-								.col.s2
-									i.material-icons remove
-								.col.s6
-									p #{bujo.body}
-								.col.s4
-									a(href="/delete/" + bujo.id)
-										i.material-icons.right delete
+			.container
+				.row
+					.col.s10.l8.offset-s1.offset-l2#list
+						table.highlight
+							tbody 
+								each bujo in Bujos
+									if bujo.type === 'task'
+										tr
+											td.center.col.s1
+												i.material-icons check_box_outline_blank
+											td.col.s8.offset-s1 #{bujo.body}
+											td.col.s1.offset-s1
+												a(href="/delete/" + bujo.id)
+													i.material-icons.right.grey-text delete
+									else if bujo.type === 'appt'
+										tr
+											td.center.col.s1
+												i.material-icons change_history
+											td.col.s8.offset-s1 #{bujo.body}
+											td.col.s1.offset-s1
+												a(href="/delete/" + bujo.id)
+													i.material-icons.right.grey-text delete
+									else if bujo.type === 'event'
+										tr
+											td.center.col.s1
+												i.material-icons radio_button_unchecked
+											td.col.s8.offset-s1 #{bujo.body}
+											td.col.s1.offset-s1
+												a(href="/delete/" + bujo.id)
+													i.material-icons.right.grey-text delete
+									else
+										tr
+											td.center.col.s1
+												i.material-icons remove
+											td.col.s8.offset-s1 #{bujo.body}
+											td.col.s1.offset-s1
+												a(href="/delete/" + bujo.id)
+													i.material-icons.right.grey-text delete
 
 			.row
 				.fixed-action-btn.toolbar

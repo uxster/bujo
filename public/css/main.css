@@ -22,10 +22,13 @@ header > nav > .nav-wrapper > .brand-logo {
 }
 
 #list {
-	overflow: auto;
-	font-size: 0.8em;
-	padding-left: 50px;
+	padding-top:50px;
+	font-size: 0.9em;
 	font-family: 'Patrick Hand SC', cursive;
+}
+
+.strike {
+	font-style: stike-through;
 }
 
 .title {

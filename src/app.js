@@ -65,12 +65,14 @@ Todos.belongsTo(Users);
 // GET
 
 app.get('/', (req, res) => {
+	
+	var user = req.session.user; 
+
 	if(user === undefined) {
 		res.render('index', {
 			errormessage: req.query.message
 		});
 	} else {
-		var user = req.session.user;
 		res.redirect('/bujo/' + user.username)
 	}
 });
