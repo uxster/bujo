@@ -62,6 +62,13 @@ html
 							input(type="text" name="body" required)
 							label(for="body") what is the task at hand?
 					.row
+						.input-field
+							select.browser-default(name="agenda" required)
+								option(value="pick an agenda" selected)
+								option(value="work") work
+								option(value="personal") personal
+								option(value="household") household
+					.row
 						button.btn-flat.red.darken-4.white-text(type="submit" name="addtask") add
 
 		script(type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js")

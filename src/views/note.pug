@@ -61,6 +61,13 @@ html
 						.input-field
 							input(type="text" name="body" required)
 							label(for="body") write down anything!
+					.row
+						.input-field
+							select.browser-default(name="agenda" required)
+								option(value="pick an agenda" selected)
+								option(value="work") work
+								option(value="personal") personal
+								option(value="household") household
 					.row.center
 						button.btn-flat.red.darken-4.white-text(type="submit" name="addnote") add
 

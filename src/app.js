@@ -54,7 +54,8 @@ var Users = db.define('users', {
 
 var Todos = db.define('todos', {
 	body: Sequelize.TEXT,
-	type: Sequelize.TEXT
+	type: Sequelize.TEXT,
+	agenda: Sequelize.TEXT
 });
 
 // Database table associations
@@ -239,6 +240,7 @@ app.post('/add/task', (req, res) => {
 	Todos.create({
 		body: req.body.body,
 		type: 'task',
+		agenda: req.body.agenda,
 		userId: req.session.user.id
 	})
 	.then(function(user){
@@ -255,6 +257,7 @@ app.post('/add/appt', (req, res) => {
 	Todos.create({
 		body: req.body.body,
 		type: 'appt',
+		agenda: req.body.agenda,
 		userId: req.session.user.id
 	})
 	.then(function(user){
@@ -271,6 +274,7 @@ app.post('/add/event', (req, res) => {
 	Todos.create({
 		body: req.body.body,
 		type: 'event',
+		agenda: req.body.agenda,
 		userId: req.session.user.id
 	})
 	.then(function(user){
@@ -287,6 +291,7 @@ app.post('/add/note', (req, res) => {
 	Todos.create({
 		body: req.body.body,
 		type: 'note',
+		agenda: req.body.agenda,
 		userId: req.session.user.id
 	})
 	.then(function(user){
