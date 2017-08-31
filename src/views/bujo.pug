@@ -62,33 +62,33 @@ html
 								each bujo in Bujos
 									if bujo.type === 'task'
 										tr
-											td.center.col.s1
+											td.center.col.s1.checkoff
 												i.material-icons check_box_outline_blank
-											td.col.s8.offset-s1 #{bujo.body}
+											td.col.s8.offset-s1.bujobody #{bujo.body}
 											td.col.s1.offset-s1
 												a(href="/delete/" + bujo.id)
 													i.material-icons.right.grey-text delete
 									else if bujo.type === 'appt'
 										tr
-											td.center.col.s1
+											td.center.col.s1.checkoff
 												i.material-icons change_history
-											td.col.s8.offset-s1 #{bujo.body}
+											td.col.s8.offset-s1.bujobody #{bujo.body}
 											td.col.s1.offset-s1
 												a(href="/delete/" + bujo.id)
 													i.material-icons.right.grey-text delete
 									else if bujo.type === 'event'
 										tr
-											td.center.col.s1
+											td.center.col.s1.checkoff
 												i.material-icons radio_button_unchecked
-											td.col.s8.offset-s1 #{bujo.body}
+											td.col.s8.offset-s1.bujobody #{bujo.body}
 											td.col.s1.offset-s1
 												a(href="/delete/" + bujo.id)
 													i.material-icons.right.grey-text delete
 									else
 										tr
-											td.center.col.s1
+											td.center.col.s1.checkoff
 												i.material-icons remove
-											td.col.s8.offset-s1 #{bujo.body}
+											td.col.s8.offset-s1.bujobody #{bujo.body}
 											td.col.s1.offset-s1
 												a(href="/delete/" + bujo.id)
 													i.material-icons.right.grey-text delete

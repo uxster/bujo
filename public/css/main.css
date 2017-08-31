@@ -28,7 +28,7 @@ header > nav > .nav-wrapper > .brand-logo {
 }
 
 .strike {
-	font-style: stike-through;
+	text-decoration: line-through;
 }
 
 .title {
