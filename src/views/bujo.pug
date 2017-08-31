@@ -64,7 +64,7 @@ html
 										tr
 											td.center.col.s1.checkoff
 												i.material-icons check_box_outline_blank
-											td.col.s8.offset-s1.bujobody #{bujo.body}
+											td.col.s8.offset-s1(data-task-id= bujo.id, onclick="strike()", id = bujo.id) #{bujo.body}
 											td.col.s1.offset-s1
 												a(href="/delete/" + bujo.id)
 													i.material-icons.right.grey-text delete
@@ -72,7 +72,7 @@ html
 										tr
 											td.center.col.s1.checkoff
 												i.material-icons change_history
-											td.col.s8.offset-s1.bujobody #{bujo.body}
+											td.col.s8.offset-s1(data-id= bujo.id) #{bujo.body}
 											td.col.s1.offset-s1
 												a(href="/delete/" + bujo.id)
 													i.material-icons.right.grey-text delete
@@ -80,7 +80,7 @@ html
 										tr
 											td.center.col.s1.checkoff
 												i.material-icons radio_button_unchecked
-											td.col.s8.offset-s1.bujobody #{bujo.body}
+											td.col.s8.offset-s1(data-id= bujo.id) #{bujo.body}
 											td.col.s1.offset-s1
 												a(href="/delete/" + bujo.id)
 													i.material-icons.right.grey-text delete
@@ -88,7 +88,7 @@ html
 										tr
 											td.center.col.s1.checkoff
 												i.material-icons remove
-											td.col.s8.offset-s1.bujobody #{bujo.body}
+											td.col.s8.offset-s1(data-id= bujo.id) #{bujo.body}
 											td.col.s1.offset-s1
 												a(href="/delete/" + bujo.id)
 													i.material-icons.right.grey-text delete
@@ -114,3 +114,9 @@ html
 		script(type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js")
 		script(src='/js/main.js')
 		script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js")
+		script.
+			function strike(){
+				var thisId = $(this).data("task-id");
+				console.log(thisId)
+				document.getElementById(`${thisId}`).addClass("strike");
+			}

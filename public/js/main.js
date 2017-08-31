@@ -9,10 +9,12 @@ $(document).ready(() => {
 		indicators: false
 	});	
 
-	$('.checkoff').click(() => {
-		$('.bujobody').addClass('strike');
-	});
-
+	// $('.checkoff').click(() => {
+	// 	$('.checkoff').next()
+	// 	// var t = $(this).parent();
+	// 	// console.log(t);
+	// });
+	
 	// $().dblclick(() => {
 	// 	$()
 	// });
