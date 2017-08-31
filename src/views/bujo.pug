@@ -63,35 +63,63 @@ html
 									if bujo.type === 'task'
 										tr
 											td.center.col.s1.checkoff
-												i.material-icons check_box_outline_blank
+												if bujo.agenda === 'work'
+													i.material-icons.deep-purple-text check_box_outline_blank
+												else if bujo.agenda === 'personal'
+													i.material-icons.cyan-text check_box_outline_blank
+												else if bujo.agenda === 'household'
+													i.material-icons.green-text check_box_outline_blank
+												else 
+													i.material-icons check_box_outline_blank
 											td.col.s8.offset-s1.bujobody #{bujo.body}
 											td.col.s1.offset-s1
 												a(href="/delete/" + bujo.id)
-													i.material-icons.right.grey-text delete
+													i.material-icons.right.grey-text close
 									else if bujo.type === 'appt'
 										tr
 											td.center.col.s1.checkoff
-												i.material-icons change_history
+												if bujo.agenda === 'work'
+													i.material-icons.deep-purple-text change_history
+												else if bujo.agenda === 'personal'
+													i.material-icons.cyan-text change_history
+												else if bujo.agenda === 'household'
+													i.material-icons.green-text change_history
+												else
+													i.material-icons change_history
 											td.col.s8.offset-s1.bujobody #{bujo.body}
 											td.col.s1.offset-s1
 												a(href="/delete/" + bujo.id)
-													i.material-icons.right.grey-text delete
+													i.material-icons.right.grey-text close
 									else if bujo.type === 'event'
 										tr
 											td.center.col.s1.checkoff
-												i.material-icons radio_button_unchecked
+												if bujo.agenda === 'work'
+													i.material-icons.deep-purple-text radio_button_unchecked
+												else if bujo.agenda === 'personal'
+													i.material-icons.cyan-text radio_button_unchecked
+												else if bujo.agenda === 'household'
+													i.material-icons.green-text radio_button_unchecked
+												else 
+													i.material-icons radio_button_unchecked
 											td.col.s8.offset-s1.bujobody #{bujo.body}
 											td.col.s1.offset-s1
 												a(href="/delete/" + bujo.id)
-													i.material-icons.right.grey-text delete
+													i.material-icons.right.grey-text close
 									else
 										tr
 											td.center.col.s1.checkoff
-												i.material-icons remove
+												if bujo.agenda === 'work'
+													i.material-icons.deep-purple-text remove
+												else if bujo.agenda === 'personal'
+													i.material-icons.cyan-text remove
+												else if bujo.agenda === 'household'
+													i.material-icons.green-text remove
+												else
+													i.material-icons remove
 											td.col.s8.offset-s1.bujobody #{bujo.body}
 											td.col.s1.offset-s1
 												a(href="/delete/" + bujo.id)
-													i.material-icons.right.grey-text delete
+													i.material-icons.right.grey-text close
 
 			.row
 				.fixed-action-btn.toolbar
