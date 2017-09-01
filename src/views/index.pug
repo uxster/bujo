@@ -31,7 +31,7 @@ html
 								a.red-text.text-darken-4(href='#register') REGISTER
 					.card-content
 							#login
-								form(action="/login" method="POST" autocomplete="off")
+								form(action="/login" method="POST" autocomplete="off" name="loginform")
 									.row
 										.input-field
 											input(type="text" name="username" required)
@@ -43,7 +43,7 @@ html
 									.row.center
 										button.btn-flat.red.darken-4.white-text(type="submit" name="login") LOGIN
 							#register
-								form(action="/register" method="POST" autocomplete="off")
+								form(action="/register" method="POST" autocomplete="off" name="registerform")
 									.row
 										.input-field
 											input(type="text" name="firstname" required)
@@ -69,7 +69,7 @@ html
 											input(type="password" name="confirmpassword" required)
 											label(for="confirmpassword") confirm password
 									.row.center
-										button.btn-flat.red.darken-4.white-text(type="submit" name="register") REGISTER
+										button.btn-flat.red.darken-4.white-text#btn(type="submit" name="register") REGISTER
 
 		script(type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js")
 		script(src='/js/main.js')

@@ -56,7 +56,7 @@ This table will store all the todos that users will create.
 //Views
 Home
 Login/Register
-List
+Bujo
 Profile
 
 //Data flow
@@ -76,18 +76,18 @@ Week 2:
 
 If there's time left:
 - Expand on MVP: Assigning to-do's to days of the week
-- Expand on MVP: Assigning different colors for different agenda's
+- Expand on MVP: Assigning different colors for different agenda's CHECK
 
 -------MVP--------
 Functionality:
-- Register
-- Login
-- Add to-do's
-- Delete to-do's
+- Register CHECK
+- Login CHECK
+- Add to-do's CHECK
+- Delete to-do's CHECK
 - Cross off to-do's without deleting them?
 - Edit to-do's
-- Display different icons for different type of to-do's
+- Display different icons for different type of to-do's CHECK
 
 Requirements:
 - Datavalidation
-- Responsive
+- Responsive CHECK
