@@ -4,11 +4,7 @@ $(document).ready(() => {
 	$(".button-collapse").sideNav({
 		menuWidth: 200
 	});
-
-	// $('.checkoff').click(() => {
-	// 	$('.bujobody').addClass('strike');
-	// });
-
+	
 	$('#btn').on('click', () => {
 		if(document.registerform.password.value.length < 8) {
 			alert("Password should at least contain 8 characters!");
