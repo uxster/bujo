@@ -8,14 +8,4 @@ $(document).ready(() => {
 	$('.slider').slider({
 		indicators: false
 	});	
-
-	// $('.checkoff').click(() => {
-	// 	$('.checkoff').next()
-	// 	// var t = $(this).parent();
-	// 	// console.log(t);
-	// });
-	
-	// $().dblclick(() => {
-	// 	$()
-	// });
 })
