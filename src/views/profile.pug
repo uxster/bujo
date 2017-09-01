@@ -7,19 +7,61 @@ html
 		link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css")
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
 
-	body.grey.darken-2
+	body
+		
 		header
 			nav
 				.nav-wrapper.red.darken-4
-					a.brand-logo.center(href="/bujo") BuJo
+					a.brand-logo.center(href="/bujo/" + user.username) BuJo
 					a.button-collapse(href="#" data-activates="mobile")
-						i.material-icons menu
+						i.material-icons bookmark
 					ul.right.hide-on-med-and-down
-						
-						
-					ul.side-nav#mobile.white
 						li
-							a(href="/profile/:username") PROFILE
-								i.material-icons person
+							a.tooltipped(href="/bujo/" + user.username, data-position="bottom" data-delay="50" data-tooltip="BUJO")
+								i.material-icons book
+						li
+							a.tooltipped(href="/help" data-position="bottom" data-delay="50" data-tooltip="HELP")
+								i.material-icons help
+						li
+							a.tooltipped(href="#" data-position="bottom" data-delay="50" data-tooltip="SETTINGS")
+								i.material-icons settings
+						li
+							a.tooltipped(href="/profile/" + user.username, data-position="bottom" data-delay="50" data-tooltip="PROFILE") #{user.username}
+								i.material-icons.left person
+						
+					ul.side-nav#mobile.grey.darken-2
+						.user-view
+							.background.red.darken-4
+							a(href="/profile/" + user.username)
+								span.white-text.name #{user.username}
+							a(href="/profile/" + user.username)
+								span.white-text.email #{user.firstname} #{user.lastname}
+						li
+							a.white-text(href="/profile/" + user.username) PROFILE
+								i.material-icons.white-text person
+						li
+							a.white-text(href="/bujo/" + user.username) BUJO
+								i.material-icons.white-text book
+						li
+							a.white-text(href="#") SETTINGS
+								i.material-icons.white-text settings
+						li
+							a.white-text(href="/help") HELP
+								i.material-icons.white-text help
+						li.divider
+						li
+							a.white-text(href="/logout") LOG OUT
+								i.material-icons.white-text exit_to_app
+
 		main
-			a.btn-flat(href="/logout") log out
+			.container
+				.row.top.center
+					.card-panel
+						p Name: #{user.firstname} #{user.lastname}
+						p Email: #{user.email}
+						a.btn-flat.btn-large.red.darken-4.white-text(href="/logout") log out
+
+		script(type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js")
+		script(src='/js/main.js')
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js")
+					

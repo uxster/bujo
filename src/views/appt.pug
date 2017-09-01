@@ -19,7 +19,7 @@ html
 							a.tooltipped(href="/bujo/" + user.username, data-position="bottom" data-delay="50" data-tooltip="BUJO")
 								i.material-icons book
 						li
-							a.tooltipped(href="#" data-position="bottom" data-delay="50" data-tooltip="HELP")
+							a.tooltipped(href="/help" data-position="bottom" data-delay="50" data-tooltip="HELP")
 								i.material-icons help
 						li
 							a.tooltipped(href="#" data-position="bottom" data-delay="50" data-tooltip="SETTINGS")
@@ -31,8 +31,6 @@ html
 					ul.side-nav#mobile.grey.darken-2
 						.user-view
 							.background.red.darken-4
-							a(href="/profile/" + user.username)
-								img(src="../images/profsile.jpg")
 							a(href="/profile/" + user.username)
 								span.white-text.name #{user.username}
 							a(href="/profile/" + user.username)
@@ -47,7 +45,7 @@ html
 							a.white-text(href="#") SETTINGS
 								i.material-icons.white-text settings
 						li
-							a.white-text(href="#") HELP
+							a.white-text(href="/help") HELP
 								i.material-icons.white-text help
 						li.divider
 						li
@@ -55,21 +53,27 @@ html
 								i.material-icons.white-text exit_to_app
 		main
 			.container
-				h4.title Add Appointment
-				form(action="/add/appt" method="POST" autocomplete="off")
-					.row
-						.input-field
-							input(type="text" name="body" required)
-							label(for="body") what appointment do you have?
-					.row
-						.input-field
-							select.browser-default(name="agenda" required)
-								option(value="pick an agenda" selected)
-								option(value="work") work
-								option(value="personal") personal
-								option(value="household") household
-					.row
-						button.btn-flat.red.darken-4.white-text(type="submit" name="addappt") add
+				.row.center
+					p Add Appointment
+				.row.center
+					form(action="/add/appt" method="POST" autocomplete="off")
+						.row
+							.input-field.col.s10.l6.offset-s1.offset-l3
+								select.browser-default.red-text.text-darken-4.small(name="agenda" required)
+									option(value="pick an agenda" selected) pick an agenda
+									option(value="work") work
+									option(value="personal") personal
+									option(value="household") household
+									option(value="other") other
+						.row
+							.input-field.col.s10.l6.offset-s1.offset-l3
+								input(type="text" name="body" required)
+								label(for="body") what appointment do you have?
+						.row
+							button.btn-flat.red.darken-4.white-text(type="submit" name="addappt") add
+				.row.center
+					a.btn-flat.grey.white-text(href="/bujo/" + user.username) back
+
 
 		script(type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js")
 		script(src='/js/main.js')

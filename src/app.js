@@ -78,8 +78,8 @@ app.get('/', (req, res) => {
 	}
 });
 
-app.get('/register', (req, res) => {
-	res.render('register');
+app.get('/help', (req, res) => {
+	res.render('help');
 });
 
 app.get('/profile/:username', (req, res) => {
@@ -93,7 +93,7 @@ app.get('/bujo/:username', (req, res) => {
 	var user = req.session.user;
 
 	if (user === undefined) {
-		res.redirect('/?message=' + encodeURIComponent("Please log in to view your profile"));
+		res.redirect('/?message=' + encodeURIComponent("Please log in to view your BuJo"));
   	} else {
    	Todos.findAll({
          where: {

@@ -1,0 +1,84 @@
+doctype html
+html
+	head 
+		link(rel='stylesheet', href='/css/main.css', type='text/css')
+		link(href="https://fonts.googleapis.com/css?family=Caveat|Cedarville+Cursive|Indie+Flower|Patrick+Hand+SC|Walter+Turncoat|Montserrat" rel="stylesheet")
+		link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+		link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+	body
+		
+		header
+			nav
+				.nav-wrapper.red.darken-4
+					a.brand-logo.center BuJo
+					ul.left
+						li
+							a(href="#" onclick="back()")
+								i.material-icons arrow_back
+		
+		main
+			.container
+				.row.center.top
+					p BuJo Key
+				.row
+					table#help
+						tbody
+							tr
+								td
+									i.material-icons check_box_outline_blank
+								td Task
+								td Use the rectangle for basic tasks, like you would on a basic to-do list
+							tr
+								td
+									i.material-icons change_history
+								td Appointment
+								td Use a triangle for appointments
+							tr
+								td
+									i.material-icons radio_button_unchecked
+								td Event
+								td Use a circle for events that will take place
+							tr
+								td
+									i.material-icons remove
+								td Note
+								td Use a dash for notes about anything you want
+				.row.center
+					p Agendas
+				.row
+					table#help
+						tbody
+							tr
+								td
+									i.material-icons.deep-purple-text check_box_outline_blank
+								td Work
+								td Work-related items will be shown in purple
+							tr
+								td
+									i.material-icons.cyan-text check_box_outline_blank
+								td Personal
+								td Personal items will be shown in blue
+							tr
+								td
+									i.material-icons.green-text check_box_outline_blank
+								td Household
+								td Household-related items will be shown in green
+				.row.center
+					p About Bullet Journalling
+				.row
+					.col.s8.offset-s2
+						.row
+							p "The Bullet Journal is a customizable and forgiving organization system. It can be your to-do list, sketchbook, notebook, and diary, but most likely, it will be all of the above. It will teach you to do more with less."
+							p.center-align#fancy - Ryder Carroll
+						.row.center
+							a.red-text.text-darken-4#nolink(href="www.bulletjournal.com") www.bulletjournal.com
+
+		script(type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js")
+		script(src='/js/main.js')
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js")
+		script.
+			function back() {
+				window.history.back()
+			}

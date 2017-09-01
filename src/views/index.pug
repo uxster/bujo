@@ -14,73 +14,63 @@ html
 					a.brand-logo.center(href="/bujo") BuJo
 					ul.right
 						li
-							button.btn-flat.modal-trigger.white(href="#popup" data-target="#popup") login
-			#popup.modal.black-text
-				.modal-content
-					.row
-						h4.center-align Login
-					.row
-						form(action="/login" method="POST" autocomplete="off")
-							.row
-								.input-field.col.s10.l8.offset-s1.offset-l2
-									input(type="text" name="username" required)
-									label(for="username") username
-							.row
-								.input-field.col.s10.l8.offset-s1.offset-l2
-									input(type="password" name="password" required)
-									label(for="password") password
-							.row.center
-								button.btn-flat.modal-action.red.darken-4.white-text(type="submit" name="login") LOGIN
-					.row.center
-						p.center-align Don't have an account yet?
-						a.btn-flat.red.darken-4.white-text(href="/register") REGISTER
-
+							a.tooltipped(href="/help" data-position="bottom" data-delay="50" data-tooltip="HELP")
+								i.material-icons help
 		main
-			if errormessage
-				#error
-					p.center-align.red-text #{errormessage}
-			.row
-				.slider
-					ul.slides
-						li
-							img(src='images/bujo1.jpg')
-							.caption.center-align
-								h3 This is our big Tagline!
-								h5.light.red-text.text-darken-2 Here's our small slogan.
-						li
-							img(src='images/bujo2.jpg')
-							.caption.left-align
-								h3 Left Aligned Caption
-								h5.light.red-text.text-darken-2 Here's our small slogan.
-						li
-							img(src='images/bujo3.jpg')
-							.caption.right-align
-								h3 Right Aligned Caption
-								h5.light.red-text.text-darken-2 Here's our small slogan.
-						li
-							img(src='images/bujo4.jpg')
-							.caption.center-align
-								h3 This is our big Tagline!
-								h5.light.red-text.text-darken-2 Here's our small slogan.
-			.row
-				.container
-					.col.s4.center
-						i.material-icons.large book
-						h5 BOOK
-						p book
-					.col.s4.center
-						i.material-icons.large book
-						h5 BOOK
-						p book
-					.col.s4.center
-						i.material-icons.large book
-						h5 BOOK
-						p book
+			.row.top
+				.card.col.s10.l6.offset-s1.offset-l3
+					.card-content
+						p.center-align Login or register below to start using your Bullet Journal!
+						if errormessage
+							p.center-align.red-text #{errormessage}
+					.card-tabs
+						ul.tabs.tabs-fixed-width
+							li.tab
+								a.red-text.text-darken-4(href='#login') LOGIN
+							li.tab
+								a.red-text.text-darken-4(href='#register') REGISTER
+					.card-content
+							#login
+								form(action="/login" method="POST" autocomplete="off")
+									.row
+										.input-field
+											input(type="text" name="username" required)
+											label(for="username") username
+									.row
+										.input-field
+											input(type="password" name="password" required)
+											label(for="password") password
+									.row.center
+										button.btn-flat.red.darken-4.white-text(type="submit" name="login") LOGIN
+							#register
+								form(action="/register" method="POST" autocomplete="off")
+									.row
+										.input-field
+											input(type="text" name="firstname" required)
+											label(for="firstname") firstname
+									.row
+										.input-field
+											input(type="text" name="lastname" required)
+											label(for="lastname") lastname
+									.row
+										.input-field
+											input(type="email" name="email" required)
+											label(for="email") email
+									.row
+										.input-field
+											input(type="text" name="username" required)
+											label(for="username") username
+									.row
+										.input-field
+											input(type="password" name="password" required)
+											label(for="password") password
+									.row
+										.input-field
+											input(type="password" name="confirmpassword" required)
+											label(for="confirmpassword") confirm password
+									.row.center
+										button.btn-flat.red.darken-4.white-text(type="submit" name="register") REGISTER
 
-		footer.page-footer
-			.footer-copyright.teal.darken-3
-				.container
-					p © 2017 Copyright All rights reserved Bujo App
 		script(type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js")
 		script(src='/js/main.js')
 		script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js")

@@ -17,10 +17,6 @@ header > nav > .nav-wrapper > .brand-logo {
 	font-family: 'Cedarville Cursive', cursive;
 }
 
-#error {
-	height: 25px;
-}
-
 #list {
 	padding-top:50px;
 	font-size: 0.9em;
@@ -31,18 +27,26 @@ header > nav > .nav-wrapper > .brand-logo {
 	text-decoration: line-through;
 }
 
-.title {
-	font-size: 1em;
-	font-family: 'Cedarville Cursive', cursive;
-}
-
 #form {
 	padding: 5px 15px 5px 15px;
 }
 
-/*#add {
+.top {
 	margin-top: 50px;
-}*/
+}
+
+.small {
+	font-size: 0.7em;
+}
+
+#fancy {
+	font-family: 'Cedarville Cursive', cursive;
+}
+
+#nolink {
+	text-decoration: none;
+	font-style: italic;
+}
 
 /*font-family: 'Walter Turncoat', cursive;
 font-family: 'Patrick Hand SC', cursive;
